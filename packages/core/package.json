@@ -1,0 +1,32 @@
+{
+  "name": "@syyyds-cli/minip",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "李思远 <lisiyuan>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/core.js",
+  "bin": {
+    "syl-cli-minip": "bin/index.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "dev": "node lib/core.js",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@syyyds-cli/utils": "^0.0.1",
+    "typescript": "^4.6.4"
+  },
+  "gitHead": ""
+}
