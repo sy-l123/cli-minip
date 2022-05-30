@@ -22,10 +22,15 @@
   },
   "scripts": {
     "dev": "node lib/core.js",
+    "zn": "node bin/index.js --name=minip",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
     "@sy-minip-cli/utils": "^0.0.3",
+    "commander": "^2.15.0",
+    "chalk": "^2.3.2",
+    "fs-extra": "^5.0.0",
+    "inquirer": "^7.1.0",
     "typescript": "^4.6.4"
   },
   "gitHead": ""

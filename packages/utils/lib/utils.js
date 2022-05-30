@@ -1,8 +1,5 @@
-'use strict';
+const path = require('path')
 
-module.exports = utils;
-
-function utils() {
-    // TODO
-    console.log('packages utils111112');
+exports.getRootPath = function () {
+    return path.resolve(__dirname, '../../')
 }
