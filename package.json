@@ -4,7 +4,7 @@
     "packages/*"
   ],
   "publishConfig": {
-    "access":"public"
+    "access": "public"
   },
   "devDependencies": {
     "lerna": "^4.0.0"

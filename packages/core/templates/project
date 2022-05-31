@@ -1,0 +1,59 @@
+{
+    "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "miniprogramRoot": "src/",
+    "compileType": "miniprogram",
+    "libVersion": "2.10.4",
+    "appid": "wx7666ce36ed9a06c0",
+    "projectname": "%E5%BC%80%E5%B7%A5%E5%95%A6",
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "enhance": true,
+      "postcss": true,
+      "preloadBackgroundData": false,
+      "minified": true,
+      "newFeature": false,
+      "coverView": true,
+      "nodeModules": false,
+      "autoAudits": false,
+      "showShadowRootInWxmlPanel": true,
+      "scopeDataCheck": false,
+      "uglifyFileName": true,
+      "checkInvalidKey": true,
+      "checkSiteMap": false,
+      "uploadWithSourceMap": true,
+      "compileHotReLoad": false,
+      "lazyloadPlaceholderEnable": false,
+      "useMultiFrameRuntime": true,
+      "useApiHook": true,
+      "useApiHostProcess": true,
+      "babelSetting": {
+        "ignore": [],
+        "disablePlugins": [],
+        "outputPath": ""
+      },
+      "useIsolateContext": false,
+      "userConfirmedBundleSwitch": false,
+      "packNpmManually": false,
+      "packNpmRelationList": [],
+      "minifyWXSS": true,
+      "disableUseStrict": false,
+      "minifyWXML": true,
+      "showES6CompileOption": false,
+      "ignoreUploadUnusedFiles": true,
+      "useStaticServer": true<% if (css !== 'none') {%>,
+      "useCompilerPlugins": [
+        "<%= css %>"
+      ]<%}%>
+    },
+    "condition": {},
+    "srcMiniprogramRoot": "src/",
+    "packOptions": {
+      "ignore": [],
+      "include": []
+    },
+    "editorSetting": {
+      "tabIndent": "insertSpaces",
+      "tabSize": 2
+    }
+  }

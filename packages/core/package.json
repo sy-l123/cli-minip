@@ -27,10 +27,14 @@
   },
   "dependencies": {
     "@sy-minip-cli/utils": "^0.0.3",
-    "commander": "^2.15.0",
     "chalk": "^2.3.2",
+    "commander": "^2.15.0",
     "fs-extra": "^5.0.0",
     "inquirer": "^7.1.0",
+    "mem-fs": "^2.2.1",
+    "mem-fs-editor": "^9.4.0",
+    "ora": "^2.0.0",
+    "shelljs": "^0.8.5",
     "typescript": "^4.6.4"
   },
   "gitHead": ""

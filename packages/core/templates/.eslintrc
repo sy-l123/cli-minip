@@ -1,0 +1,46 @@
+{
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true,
+      "commonjs": true
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "requireConfigFile": false
+    },
+    "globals": {
+      "wx": true,
+      "App": true,
+      "Page": true,
+      "getCurrentPages": true,
+      "getApp": true,
+      "Component": true,
+      "requirePlugin": true,
+      "requireMiniProgram": true
+    },
+    "extends": ["airbnb-base"],
+    "overrides": [
+      {
+        "files": ["*.wxml"],
+        "parser": "html"
+      }
+    ],
+    "rules": {
+      "no-console": 0,
+      "import/prefer-default-export": 0,
+      "max-len": ["error", { "code": 180 }],
+      // 去掉 严格扩展运算
+      "prefer-object-spread": 0,
+      // 去掉 下划线禁用
+      "no-use-before-define": 0,
+      "no-underscore-dangle": 0,
+      "no-unused-expressions": 0,
+      "no-restricted-syntax": 0,
+      "object-curly-newline": 0,
+      "no-plusplus": 0
+    }
+  }
+  
