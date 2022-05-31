@@ -1,6 +1,6 @@
 {
   "name": "@sy-minip-cli/core",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "原生微信小程序脚手架",
   "author": "李思远 <lisiyuan>",
   "homepage": "",
@@ -26,7 +26,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@sy-minip-cli/utils": "^0.0.3",
+    "@sy-minip-cli/utils": "^0.0.4",
     "chalk": "^2.3.2",
     "commander": "^2.15.0",
     "fs-extra": "^5.0.0",
