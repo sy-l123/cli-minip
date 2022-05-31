@@ -58,7 +58,8 @@ module.exports = function (creater, params, cb) {
             // exchangeStyleExtFile(path.join(projectPath, 'src'));
             creater.exchangeStyleExtFn(path.join(projectPath, 'src'), currentStyleExt)
         }
-
+        // 目录切换
+        shelljs.cd(projectPath);
         const command = 'npm install'
         const installSpinner = ora(`执行安装项目依赖 ${chalk.cyan.bold(command)}, 需要一会儿...`).start()
         const install = shelljs.exec(command, {
