@@ -5,7 +5,7 @@ const editor = require('mem-fs-editor')
 
 const {
     exchangeStyleExt
-} = require('@sy-minip-cli/utils/lib/utils')
+} = require('./utils')
 
 class Creator {
     constructor() {

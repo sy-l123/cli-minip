@@ -13,9 +13,6 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -25,7 +22,6 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@sy-minip-cli/utils": "^0.0.4",
     "chalk": "^2.3.2",
     "commander": "^2.15.0",
     "fs-extra": "^5.0.0",
@@ -36,5 +32,5 @@
     "shelljs": "^0.8.5",
     "typescript": "^4.6.4"
   },
-  "gitHead": ""
+  "gitHead": "0f87aef77e7e54c2a2cbaa3d8b1f1dbf10360ed0"
 }

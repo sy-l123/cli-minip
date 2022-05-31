@@ -5,7 +5,7 @@ const inquirer = require('inquirer')
 
 const {
     SOURCE_DIR
-} = require('@sy-minip-cli/utils/lib/config')
+} = require('./config')
 
 const Creator = require('./creator')
 
