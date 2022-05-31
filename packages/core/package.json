@@ -7,7 +7,7 @@
   "license": "MIT",
   "main": "lib/core.js",
   "bin": {
-    "minip": "bin/index.js"
+    "minip": "bin/minip"
   },
   "directories": {
     "lib": "lib",
@@ -21,7 +21,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "dev": "node lib/index.js",
+    "dev": "node bin/minip init minis",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {

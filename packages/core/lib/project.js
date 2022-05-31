@@ -12,7 +12,6 @@ const Creator = require('./creator')
 class Project extends Creator {
     constructor(options) {
         super()
-        // this.rootPath = this.sourceRoot(path.join(getRootPath()))
         this.conf = Object.assign({
             projectName: null,
         }, options)
@@ -92,7 +91,8 @@ class Project extends Creator {
 
     write(cb) {
         this.conf.src = SOURCE_DIR
-        const templateCreate = require(path.join(this._rootPath, 'core/templates/index.js'))
+        // this._rootPath D:\git-project\syl-cli\minip\packages
+        const templateCreate = require(path.join(this._rootPath, 'core/lib/templates/index.js'))
         templateCreate(this, this.conf, cb)
     }
 }

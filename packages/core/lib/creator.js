@@ -4,7 +4,6 @@ const memFs = require('mem-fs')
 const editor = require('mem-fs-editor')
 
 const {
-    getRootPath,
     exchangeStyleExt
 } = require('@sy-minip-cli/utils/lib/utils')
 
@@ -12,15 +11,13 @@ class Creator {
     constructor() {
         const store = memFs.create()
         this.fs = editor.create(store)
-        this.sourceRoot(path.join(getRootPath()))
+        this.sourceRoot(path.join(this.getRootPath()))
         this.init()
     }
 
     init() {}
 
     sourceRoot(rootPath) {
-        // rootPath       D:\git-project\syl-cli\minip\packages
-        // this._rootPath D:\git-project\syl-cli\minip\packages
         if (typeof rootPath === 'string') {
             this._rootPath = path.resolve(rootPath)
         }
@@ -28,6 +25,10 @@ class Creator {
             fs.ensureDirSync(this._rootPath)
         }
         return this._rootPath
+    }
+
+    getRootPath () {
+        return path.resolve(__dirname, '../../')
     }
 
     template(filePath, dest, data, options) {

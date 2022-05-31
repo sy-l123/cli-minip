@@ -4,27 +4,6 @@ const chalk = require('chalk')
 const shelljs = require('shelljs')
 const ora = require('ora')
 
-// var nodeFs = require("fs");
-
-// var gStyleExt = ''
-// 从目录开始遍历读取文件
-// function exchangeStyleExtFile(pathName) {
-//     files = nodeFs.readdirSync(pathName); // 需要用到同步读取
-//     files.forEach((file) => {
-//         states = nodeFs.statSync(pathName + "/" + file);
-//         // 判断是否是目录，是就继续递归
-//         if (states.isDirectory()) {
-//             exchangeStyleExtFile(pathName + "/" + file);
-//         } else {
-//             if (file.match(/\.less/)) {
-//                 const destFile = `${file}`.replace('.less', `.${gStyleExt}`)
-//                 nodeFs.rename(path.join(pathName, file), path.join(pathName, destFile), ()=>{})
-//             }
-//         }
-//     });
-// }
-
-
 module.exports = function (creater, params, cb) {
     const {
         projectName,
@@ -41,19 +20,19 @@ module.exports = function (creater, params, cb) {
     fs.mkdirSync(sourceDir)
     fs.mkdirSync(path.join(sourceDir, 'pages'))
 
-    creater.template('core/templates/pkg', path.join(projectPath, 'package.json'), {
+    creater.template('core/lib/templates/pkg', path.join(projectPath, 'package.json'), {
         projectName,
     })
 
-    creater.template('core/templates/project', path.join(projectPath, 'project.config.json'), {
+    creater.template('core/lib/templates/project', path.join(projectPath, 'project.config.json'), {
         css,
     })
 
-    creater.template('core/templates/.eslintrc', path.join(projectPath, '.eslintrc.json'))
-    creater.template('core/templates/.eslintignore', path.join(projectPath, '.eslintignore'))
-    creater.template('core/templates/README', path.join(projectPath, 'README.md'))
-    creater.template('core/templates/gitignore', path.join(projectPath, '.gitignore'))
-    creater.copy('core/templates/src', path.join(projectPath, 'src'));
+    creater.template('core/lib/templates/.eslintrc', path.join(projectPath, '.eslintrc.json'))
+    creater.template('core/lib/templates/.eslintignore', path.join(projectPath, '.eslintignore'))
+    creater.template('core/lib/templates/README', path.join(projectPath, 'README.md'))
+    creater.template('core/lib/templates/gitignore', path.join(projectPath, '.gitignore'))
+    creater.copy('core/lib/templates/src', path.join(projectPath, 'src'));
 
     creater.fs.commit(() => {
         console.log()

@@ -1,10 +1,6 @@
 const path = require('path')
 var nodeFs = require("fs");
 
-exports.getRootPath = function () {
-    return path.resolve(__dirname, '../../')
-}
-
 function exchangeStyleExt(pathName, styleExt) {
     files = nodeFs.readdirSync(pathName); // 需要用到同步读取
     files.forEach((file) => {

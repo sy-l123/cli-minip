@@ -17,18 +17,7 @@ const {
 
 const projectName = args[0] || name
 
-
 const project = new Project({
     projectName,
 })
-
 project.create()
-
-
-// try {
-//     require('../lib/core.js').run(process.argv.slice(2, process.argv.length))
-//     console.log('111')
-// } catch (error) {
-//     require('../lib/core.js')
-//     console.log('222')
-// }
