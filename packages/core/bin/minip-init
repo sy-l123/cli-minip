@@ -12,7 +12,6 @@ program
 const args = program.args
 const {
     name,
-    typescript
 } = program
 
 const projectName = args[0] || name
