@@ -1,0 +1,5 @@
+<view class="auth-com-box">
+  <button disabled="{{disabled}}" class="common-login-btn {{disabled ? 'dis-btn-style' : 'able-btn-style'}}" open-type="{{disabled ? '' : openType}}" bindgetphonenumber="getPhoneNumber">
+  微信用户一键登录
+  </button>
+</view>

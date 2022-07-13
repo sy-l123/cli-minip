@@ -1,8 +1,0 @@
-#! /usr/bin/env node
-
-const program = require('commander')
-
-program
-  .usage('<command> [options]')
-  .command('init [projectName]', 'Init a project with default templete')
-  .parse(process.argv)

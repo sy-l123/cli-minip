@@ -1,0 +1,20 @@
+<view class="set-env" wx:if="{{ !envShow }}">
+  <view class="env-ti" catch:tap="changeEnv">{{ curEnv }}</view>
+</view>
+
+<view class="env-box ani-base {{ envShow ? 'is-act' : '' }}">
+  <view class="env-list">
+    <view
+      class="env-list-item btn-item"
+      wx:for="{{ envList }}"
+      wx:key="*this"
+      data-env="{{ item }}"
+      catch:tap="selectedEnv"
+    >
+      {{ item }}
+    </view>
+  </view>
+  <view class="env-cancel btn-item" catch:tap="closeEnv">取消</view>
+</view>
+
+<view class="env-bg" wx:if="{{ envShow }}" catch:tap="closeEnv"></view>

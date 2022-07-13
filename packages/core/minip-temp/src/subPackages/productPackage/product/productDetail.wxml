@@ -1,0 +1,3 @@
+<view class="content product_detail">
+  <zn-page-title pageTitle="{{pageTitle}}" showFanhui="{{showFanhui}}" showHomeIcon="{{!showFanhui}}" fade="{{fade}}" usePosition="usePosition" bindtap:goBackPage="goBackPage"></zn-page-title>
+</view>

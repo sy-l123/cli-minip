@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "SetEnv": "../../components/debug/SetEnv/SetEnv"
+  },
+  "enablePullDownRefresh": true
+}

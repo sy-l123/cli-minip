@@ -1,0 +1,148 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const creator_1 = require("./creator");
+const helper_1 = require("../helper");
+const semver = require("semver");
+const path = require("path");
+const fs = require("fs-extra");
+const inquirer = require("inquirer");
+const fetchTemplates_1 = require("./fetchTemplates");
+const utils_1 = require("../utils");
+class Project extends creator_1.default {
+    constructor(options) {
+        super(options.sourceRoot);
+        this.askProjectName = function (conf, prompts) {
+            if (typeof conf.projectName !== 'string') {
+                prompts.push({
+                    type: 'input',
+                    name: 'projectName',
+                    message: '请输入项目名称！',
+                    validate(input) {
+                        if (!input) {
+                            return '项目名不能为空！';
+                        }
+                        if (fs.existsSync(input)) {
+                            return '当前目录已经存在同名项目，请换一个项目名！';
+                        }
+                        return true;
+                    }
+                });
+            }
+            else if (fs.existsSync(conf.projectName)) {
+                prompts.push({
+                    type: 'input',
+                    name: 'projectName',
+                    message: '当前目录已经存在同名项目，请换一个项目名！',
+                    validate(input) {
+                        if (!input) {
+                            return '项目名不能为空！';
+                        }
+                        if (fs.existsSync(input)) {
+                            return '项目名依然重复！';
+                        }
+                        return true;
+                    }
+                });
+            }
+        };
+        this.askDescription = function (conf, prompts) {
+            if (typeof conf.description !== 'string') {
+                prompts.push({
+                    type: 'input',
+                    name: 'description',
+                    message: '请输入项目介绍！'
+                });
+            }
+        };
+        this.askTypescript = function (conf, prompts) {
+            if (typeof conf.typescript !== 'boolean') {
+                prompts.push({
+                    type: 'confirm',
+                    name: 'typescript',
+                    message: '是否需要使用 TypeScript ？'
+                });
+            }
+        };
+        this.askCSS = function (conf, prompts) {
+            const cssChoices = [{
+                    name: 'Less',
+                    value: 'less'
+                }, {
+                    name: 'Sass',
+                    value: 'sass'
+                }, {
+                    name: '无',
+                    value: 'none'
+                }];
+            if (typeof conf.css !== 'string') {
+                prompts.push({
+                    type: 'list',
+                    name: 'css',
+                    message: '请选择 CSS 预处理器（Sass/Less',
+                    choices: cssChoices
+                });
+            }
+        };
+        const unSupportedVer = semver.lt(process.version, 'v7.6.0');
+        if (unSupportedVer) {
+            throw new Error('Node.js 版本过低，推荐升级 Node.js 至 v8.0.0+');
+        }
+        this.rootPath = this._rootPath;
+        this.conf = Object.assign({
+            projectName: '',
+            projectDir: '',
+            template: '',
+            description: ''
+        }, options);
+        // rootPath: D:\git-project\syl-cli\miniP\packages\core
+        // conf: {
+        //     projectName: 'minip',
+        //     projectDir: 'D:\\git-project\\syl-cli\\miniP\\packages\\core',
+        //     template: '',
+        //     description: undefined,
+        //     typescript: true,
+        //     css: undefined
+        // }
+    }
+    init() {
+        console.log(helper_1.default.chalk.green('minip 即将创建一个新项目!'));
+        console.log(`Need help? Go and open issue: ${helper_1.default.chalk.blueBright('https://github.com/sy-l123/cli-minip-scaffold/issues')}`);
+        console.log();
+    }
+    create() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            try {
+                const answers = yield this.ask();
+                console.log('answers-->', answers);
+                this.conf = Object.assign(this.conf, answers);
+                (0, fetchTemplates_1.default)(this.conf.projectDir).then(() => {
+                    this.write();
+                });
+            }
+            catch (error) {
+                console.log(helper_1.default.chalk.red('创建项目失败: ', error));
+            }
+        });
+    }
+    ask() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            let prompts = [];
+            const conf = this.conf;
+            this.askProjectName(conf, prompts);
+            this.askDescription(conf, prompts);
+            this.askTypescript(conf, prompts);
+            this.askCSS(conf, prompts);
+            const answers = yield inquirer.prompt(prompts);
+            return Object.assign({}, answers);
+        });
+    }
+    write() {
+        this.conf.src = utils_1.ConstanceHelper.SOURCE_DIR;
+        console.log('------->templateCreate ', path.join(this._rootPath, utils_1.ConstanceHelper.TEMP_DOWNLOAD_FLODER, '/index.js'));
+        const templateCreate = require(path.join(this._rootPath, utils_1.ConstanceHelper.TEMP_DOWNLOAD_FLODER, '/index.js'));
+        templateCreate(this, this.conf);
+    }
+}
+exports.default = Project;
+//# sourceMappingURL=project.js.map

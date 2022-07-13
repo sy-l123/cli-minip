@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "removeComments": false,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "rootDir": "./src",
+    "module": "commonjs",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "importHelpers": true
+  },
+  "include": [
+    "./src",
+    "./bin"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
