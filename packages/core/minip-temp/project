@@ -4,7 +4,7 @@
     "compileType": "miniprogram",
     "libVersion": "2.10.4",
     "appid": "wx7666ce36ed9a06c0",
-    "projectname": "%E5%BC%80%E5%B7%A5%E5%95%A6",
+    "projectname": "<%= projectName %>",
     "setting": {
       "urlCheck": false,
       "es6": true,

@@ -73,7 +73,7 @@ export default class Project extends Creator {
 
         this.askProjectName(conf, prompts)
         this.askDescription(conf, prompts)
-        this.askTypescript(conf, prompts)
+        // this.askTypescript(conf, prompts)
         this.askCSS(conf, prompts)
 
         const answers = await inquirer.prompt(prompts)

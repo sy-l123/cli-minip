@@ -7,7 +7,7 @@ const ora = require('ora')
 module.exports = function (creater, params, cb) {
     const {
         projectName,
-        date,
+        description,
         src,
         css
     } = params // { projectName: 'minip', css: 'less', date: '2022-5-30', src: 'src' }
@@ -22,9 +22,11 @@ module.exports = function (creater, params, cb) {
 
     creater.template('minip-temp/pkg', path.join(projectPath, 'package.json'), {
         projectName,
+        description,
     })
 
     creater.template('minip-temp/project', path.join(projectPath, 'project.config.json'), {
+        projectName,
         css,
     })
 

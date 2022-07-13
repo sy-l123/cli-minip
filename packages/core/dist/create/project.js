@@ -131,7 +131,7 @@ class Project extends creator_1.default {
             const conf = this.conf;
             this.askProjectName(conf, prompts);
             this.askDescription(conf, prompts);
-            this.askTypescript(conf, prompts);
+            // this.askTypescript(conf, prompts)
             this.askCSS(conf, prompts);
             const answers = yield inquirer.prompt(prompts);
             return Object.assign({}, answers);
