@@ -50,7 +50,6 @@ export default class Project extends Creator {
 
     init() {
         console.log(helper.chalk.green('zncli 即将创建一个新项目!'))
-        // console.log(`Need help? Go and open issue: ${helper.chalk.blueBright('https://github.com/sy-l123/cli-minip-scaffold/issues')}`)
         console.log()
     }
 
@@ -149,7 +148,7 @@ export default class Project extends Creator {
 
     write() {
         this.conf.src = ConstanceHelper.SOURCE_DIR
-        console.log('------->templateCreate ', path.join(this._rootPath, ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'))
+        // console.log('------->templateCreate ', path.join(this._rootPath, ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'))
         const templateCreate = require(path.join(this._rootPath, ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'))
         templateCreate(this, this.conf)
     }

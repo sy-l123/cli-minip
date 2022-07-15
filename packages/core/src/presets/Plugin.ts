@@ -14,7 +14,6 @@ export default class Plugin {
     }
 
     registerCommand(command: ICommand) {
-        console.log('do registerCommand', command)
         this.register(command)
     }
 

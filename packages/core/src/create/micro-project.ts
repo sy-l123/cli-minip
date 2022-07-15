@@ -66,7 +66,6 @@ export default class MicroProject extends Creator {
 
         this.askProjectName(conf, prompts)
         this.askDescription(conf, prompts)
-        console.log('prompts micro', prompts)
         const answers = await inquirer.prompt(prompts)
 
         return {

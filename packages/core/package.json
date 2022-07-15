@@ -15,14 +15,12 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "http://registry.npmjs.org/"
   },
   "engines": {
     "node": ">=12"
   },
   "scripts": {
-    "dev_bin": "node bin/zncli init minip",
-    "dev_bin2": "node bin/zncli create microp",
     "dev": "tsc -w",
     "prod": "tsc",
     "clean": "rimraf dist",
@@ -42,7 +40,7 @@
     "shelljs": "^0.8.5",
     "tapable": "^2.2.1"
   },
-  "gitHead": "b3d8538bc89c60222f966a0e260c8f2f80102bbe",
+  "gitHead": "",
   "devDependencies": {
     "typescript": "^4.7.4"
   }

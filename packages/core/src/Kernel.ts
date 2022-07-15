@@ -34,8 +34,6 @@ export default class Kernel extends EventEmitter {
     }
 
     initPlugin(plugin: any) {
-        console.log('plugin--->', plugin)
-        // plugin:  D:\git-project\syl-cli\miniP\packages\core\dist\presets\commands\init.js
         const { id, path, opts, apply } = {
             id: plugin,
             path: plugin,
@@ -45,7 +43,6 @@ export default class Kernel extends EventEmitter {
             }
         }
         const pluginCtx = new Plugin({ id, path, ctx: this })
-        console.log('do initPluginCtx -- >', pluginCtx)
         apply()(pluginCtx)
     }
 
@@ -59,7 +56,6 @@ export default class Kernel extends EventEmitter {
             opts = args.opts
         }
         const hooks = this.hooks.get(name) || []
-        console.log('this.hooks -->', this.hooks);
 
         const waterfall = new AsyncSeriesWaterfallHook(['arg'])
         if (hooks.length) {

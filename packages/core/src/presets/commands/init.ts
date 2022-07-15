@@ -1,5 +1,4 @@
 import { IPluginContext } from '../../utils/types'
-// import { default as Project } from '../../create/project'
 
 export default (ctx: IPluginContext) => {
   ctx.registerCommand({
@@ -12,8 +11,6 @@ export default (ctx: IPluginContext) => {
       '-h, --help': 'output usage information'
     },
     async fn(opts) {
-      // init project
-      console.log('init do opts', opts)
       /* _: [ 'init', 'minip' ],
         options: {
           appPath: 'D:\\git-project\\syl-cli\\miniP\\packages\\core',

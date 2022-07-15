@@ -19,9 +19,6 @@ export default class CLI {
                 help: ['h']
             }
         })
-        console.log('args', args);
-        // node bin/minip init minip -v --name ss --typescript
-        // args { _: [ 'init', 'minip' ], v: true, name: 'ss', typescript: true }
 
         const _ = args._
         const command = _[0]
@@ -34,7 +31,7 @@ export default class CLI {
             const targetPlugin = `${command}.js`
 
             const kernel = new Kernel({
-                appPath, // D:\git-project\syl-cli\miniP\packages\core
+                appPath,
             })
             kernel.optsPlugins = []
 
