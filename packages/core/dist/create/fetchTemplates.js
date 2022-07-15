@@ -7,9 +7,9 @@ const fs = require("fs-extra");
 const ora = require('ora');
 const download = require("download-git-repo");
 const helper_1 = require("../helper");
-const templateSource = utils_1.ConstanceHelper.DEFAULT_TEMPLATE_SRC; // git@github.com:sy-l123/cli-minip-scaffold.git
-function fetchTemplate(templateRootPath) {
-    const tempPath = path.join(templateRootPath, utils_1.ConstanceHelper.TEMP_DOWNLOAD_FLODER);
+function fetchTemplate(templateRootPath, command) {
+    const templateSource = utils_1.ConstanceHelper[command].DEFAULT_TEMPLATE_SRC;
+    const tempPath = path.join(templateRootPath, utils_1.ConstanceHelper[command].TEMP_DOWNLOAD_FLODER);
     return new Promise((resolve) => tslib_1.__awaiter(this, void 0, void 0, function* () {
         // 下载文件的缓存目录
         if (fs.existsSync(tempPath)) {
@@ -18,7 +18,7 @@ function fetchTemplate(templateRootPath) {
         }
         yield fs.mkdir(tempPath);
         const spinner = ora(`正在从 ${templateSource} 拉取远程模板...`).start();
-        download(templateSource, utils_1.ConstanceHelper.TEMP_DOWNLOAD_FLODER, { clone: true }, (error) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+        download(templateSource, utils_1.ConstanceHelper[command].TEMP_DOWNLOAD_FLODER, { clone: true }, (error) => tslib_1.__awaiter(this, void 0, void 0, function* () {
             if (error) {
                 console.log(error);
                 spinner.color = 'red';

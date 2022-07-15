@@ -49,17 +49,16 @@ export default class Project extends Creator {
     }
 
     init() {
-        console.log(helper.chalk.green('minip 即将创建一个新项目!'))
-        console.log(`Need help? Go and open issue: ${helper.chalk.blueBright('https://github.com/sy-l123/cli-minip-scaffold/issues')}`)
+        console.log(helper.chalk.green('zncli 即将创建一个新小程序项目!'))
+        // console.log(`Need help? Go and open issue: ${helper.chalk.blueBright('https://github.com/sy-l123/cli-minip-scaffold/issues')}`)
         console.log()
     }
 
     async create() {
         try {
             const answers = await this.ask()
-            console.log('answers-->', answers)
             this.conf = Object.assign(this.conf, answers)
-            fetchTemplate(this.conf.projectDir).then(() => {
+            fetchTemplate(this.conf.projectDir, 'init').then(() => {
                 this.write()
             })
         } catch (error) {
@@ -73,9 +72,7 @@ export default class Project extends Creator {
 
         this.askProjectName(conf, prompts)
         this.askDescription(conf, prompts)
-        // this.askTypescript(conf, prompts)
         this.askCSS(conf, prompts)
-
         const answers = await inquirer.prompt(prompts)
 
         return {
@@ -118,21 +115,11 @@ export default class Project extends Creator {
     }
 
     askDescription: AskMethods = function (conf, prompts) {
-        if (typeof conf.description !== 'string') {
+        if ((typeof conf.description as string | undefined) !== 'string') {
             prompts.push({
                 type: 'input',
                 name: 'description',
                 message: '请输入项目介绍！'
-            })
-        }
-    }
-
-    askTypescript: AskMethods = function (conf, prompts) {
-        if (typeof conf.typescript !== 'boolean') {
-            prompts.push({
-                type: 'confirm',
-                name: 'typescript',
-                message: '是否需要使用 TypeScript ？'
             })
         }
     }
@@ -154,7 +141,7 @@ export default class Project extends Creator {
             prompts.push({
                 type: 'list',
                 name: 'css',
-                message: '请选择 CSS 预处理器（Sass/Less',
+                message: '请选择 CSS 预处理器（Sass/Less/无）',
                 choices: cssChoices
             })
         }
@@ -162,8 +149,8 @@ export default class Project extends Creator {
 
     write() {
         this.conf.src = ConstanceHelper.SOURCE_DIR
-        console.log('------->templateCreate ', path.join(this._rootPath, ConstanceHelper.TEMP_DOWNLOAD_FLODER, '/index.js'))
-        const templateCreate = require(path.join(this._rootPath, ConstanceHelper.TEMP_DOWNLOAD_FLODER, '/index.js'))
+        console.log('------->templateCreate ', path.join(this._rootPath, ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'))
+        const templateCreate = require(path.join(this._rootPath, ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'))
         templateCreate(this, this.conf)
     }
 }

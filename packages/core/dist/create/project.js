@@ -55,15 +55,6 @@ class Project extends creator_1.default {
                 });
             }
         };
-        this.askTypescript = function (conf, prompts) {
-            if (typeof conf.typescript !== 'boolean') {
-                prompts.push({
-                    type: 'confirm',
-                    name: 'typescript',
-                    message: '是否需要使用 TypeScript ？'
-                });
-            }
-        };
         this.askCSS = function (conf, prompts) {
             const cssChoices = [{
                     name: 'Less',
@@ -79,7 +70,7 @@ class Project extends creator_1.default {
                 prompts.push({
                     type: 'list',
                     name: 'css',
-                    message: '请选择 CSS 预处理器（Sass/Less',
+                    message: '请选择 CSS 预处理器（Sass/Less/无）',
                     choices: cssChoices
                 });
             }
@@ -106,17 +97,16 @@ class Project extends creator_1.default {
         // }
     }
     init() {
-        console.log(helper_1.default.chalk.green('minip 即将创建一个新项目!'));
-        console.log(`Need help? Go and open issue: ${helper_1.default.chalk.blueBright('https://github.com/sy-l123/cli-minip-scaffold/issues')}`);
+        console.log(helper_1.default.chalk.green('zncli 即将创建一个新小程序项目!'));
+        // console.log(`Need help? Go and open issue: ${helper.chalk.blueBright('https://github.com/sy-l123/cli-minip-scaffold/issues')}`)
         console.log();
     }
     create() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             try {
                 const answers = yield this.ask();
-                console.log('answers-->', answers);
                 this.conf = Object.assign(this.conf, answers);
-                (0, fetchTemplates_1.default)(this.conf.projectDir).then(() => {
+                (0, fetchTemplates_1.default)(this.conf.projectDir, 'init').then(() => {
                     this.write();
                 });
             }
@@ -131,7 +121,6 @@ class Project extends creator_1.default {
             const conf = this.conf;
             this.askProjectName(conf, prompts);
             this.askDescription(conf, prompts);
-            // this.askTypescript(conf, prompts)
             this.askCSS(conf, prompts);
             const answers = yield inquirer.prompt(prompts);
             return Object.assign({}, answers);
@@ -139,8 +128,8 @@ class Project extends creator_1.default {
     }
     write() {
         this.conf.src = utils_1.ConstanceHelper.SOURCE_DIR;
-        console.log('------->templateCreate ', path.join(this._rootPath, utils_1.ConstanceHelper.TEMP_DOWNLOAD_FLODER, '/index.js'));
-        const templateCreate = require(path.join(this._rootPath, utils_1.ConstanceHelper.TEMP_DOWNLOAD_FLODER, '/index.js'));
+        console.log('------->templateCreate ', path.join(this._rootPath, utils_1.ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'));
+        const templateCreate = require(path.join(this._rootPath, utils_1.ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'));
         templateCreate(this, this.conf);
     }
 }

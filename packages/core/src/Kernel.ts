@@ -34,6 +34,7 @@ export default class Kernel extends EventEmitter {
     }
 
     initPlugin(plugin: any) {
+        console.log('plugin--->', plugin)
         // plugin:  D:\git-project\syl-cli\miniP\packages\core\dist\presets\commands\init.js
         const { id, path, opts, apply } = {
             id: plugin,

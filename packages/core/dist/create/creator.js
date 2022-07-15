@@ -5,6 +5,7 @@ const fs = require("fs-extra");
 const memFs = require("mem-fs");
 const editor = require("mem-fs-editor");
 const utils_1 = require("../utils");
+const helper_1 = require("../helper");
 class Creator {
     constructor(sourceRoot) {
         const store = memFs.create();
@@ -23,7 +24,12 @@ class Creator {
         return this._rootPath;
     }
     template(filePath, dest, data, options) {
-        this.fs.copyTpl(path.join(this._rootPath, filePath), dest, Object.assign({}, this, data), options);
+        try {
+            this.fs.copyTpl(path.join(this._rootPath, filePath), dest, Object.assign({}, this, data), options);
+        }
+        catch (error) {
+            console.log(helper_1.default.chalk.green(`${filePath}模板创建失败:${error}`));
+        }
     }
     copy(filePath, dest) {
         this.fs.copy(path.join(this._rootPath, filePath), dest);

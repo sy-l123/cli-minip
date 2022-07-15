@@ -1,6 +1,6 @@
-# 原生微信小程序脚手架
+# 原生微信小程序 + 微前端脚手架
 
-该项目为 原生微信小程序 脚手架
+该项目为 原生微信小程序 + 微前端 脚手架
 
 
 技术栈：基于 lerna `4.0.0` + node >= `12.0.0`
@@ -15,7 +15,10 @@
 ### 接入指南 -- 
 
 ##### 安装
-# $ npm i @minip-cli/core -g
+# $ npm i @zn-cli/core -g
 
-##### 创建新项目
-# $ minip_cli init <%= your project name %>
+##### 创建小程序 新项目
+# $ zn_cli init <%= your project name %>
+
+##### 创建微前端 子项目
+# $ zn_cli create <%= your project name %>

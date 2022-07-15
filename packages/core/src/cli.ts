@@ -5,15 +5,15 @@ import * as path from 'path'
 import * as fs from 'fs-extra'
 export default class CLI {
     appPath: string
-    constructor (appPath) {
+    constructor(appPath) {
         this.appPath = appPath || process.cwd()
     }
 
-    run () {
+    run() {
         this.parseArgs()
     }
 
-    parseArgs () {
+    parseArgs() {
         const args = minimist(process.argv.slice(2), {
             alias: {
                 help: ['h']
@@ -53,7 +53,16 @@ export default class CLI {
                         typescript: args.typescript,
                         css: args.css,
                         h: args.h
-                      })
+                    })
+                }
+                case 'create': {
+                    customCommand(command, kernel, {
+                        _,
+                        appPath,
+                        projectName: _[1] || args.name,
+                        description: args.description,
+                        h: args.h
+                    })
                 }
             }
         }

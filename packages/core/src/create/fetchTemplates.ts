@@ -10,11 +10,10 @@ export interface ITemplates {
     desc?: string
 }
 
-const templateSource: string = ConstanceHelper.DEFAULT_TEMPLATE_SRC // git@github.com:sy-l123/cli-minip-scaffold.git
 
-export default function fetchTemplate(templateRootPath: string): Promise<void> {
-    const tempPath = path.join(templateRootPath, ConstanceHelper.TEMP_DOWNLOAD_FLODER)
-
+export default function fetchTemplate(templateRootPath: string, command: string): Promise<void> {
+    const templateSource: string = ConstanceHelper[command].DEFAULT_TEMPLATE_SRC
+    const tempPath = path.join(templateRootPath, ConstanceHelper[command].TEMP_DOWNLOAD_FLODER)
     return new Promise(async (resolve) => {
         // 下载文件的缓存目录
         if (fs.existsSync(tempPath)) {
@@ -24,7 +23,7 @@ export default function fetchTemplate(templateRootPath: string): Promise<void> {
         await fs.mkdir(tempPath)
 
         const spinner = ora(`正在从 ${templateSource} 拉取远程模板...`).start()
-        download(templateSource, ConstanceHelper.TEMP_DOWNLOAD_FLODER, { clone: true }, async error => {
+        download(templateSource, ConstanceHelper[command].TEMP_DOWNLOAD_FLODER, { clone: true }, async error => {
             if (error) {
                 console.log(error)
                 spinner.color = 'red'

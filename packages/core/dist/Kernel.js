@@ -19,6 +19,7 @@ class Kernel extends events_1.EventEmitter {
         }
     }
     initPlugin(plugin) {
+        console.log('plugin--->', plugin);
         // plugin:  D:\git-project\syl-cli\miniP\packages\core\dist\presets\commands\init.js
         const { id, path, opts, apply } = {
             id: plugin,

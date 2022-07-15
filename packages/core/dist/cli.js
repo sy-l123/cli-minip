@@ -49,6 +49,15 @@ class CLI {
                         h: args.h
                     });
                 }
+                case 'create': {
+                    (0, customCommand_1.default)(command, kernel, {
+                        _,
+                        appPath,
+                        projectName: _[1] || args.name,
+                        description: args.description,
+                        h: args.h
+                    });
+                }
             }
         }
     }

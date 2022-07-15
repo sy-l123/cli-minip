@@ -3,6 +3,7 @@ import * as fs from 'fs-extra'
 import * as memFs from 'mem-fs'
 import * as editor from 'mem-fs-editor'
 import { getRootPath, exchangeStyleExt } from '../utils'
+import helper from '../helper'
 
 interface IFile {}
 
@@ -39,12 +40,16 @@ export default class Creator {
     }
 
     template(filePath, dest, data, options) {
-        this.fs.copyTpl(
-            path.join(this._rootPath, filePath),
-            dest,
-            Object.assign({}, this, data),
-            options
-        )
+        try {
+            this.fs.copyTpl(
+                path.join(this._rootPath, filePath),
+                dest,
+                Object.assign({}, this, data),
+                options
+            )
+        } catch (error) {
+            console.log(helper.chalk.green(`${filePath}模板创建失败:${error}`, ))
+        }
     }
 
     copy(filePath, dest) {

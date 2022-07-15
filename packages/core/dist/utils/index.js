@@ -10,10 +10,17 @@ function getRootPath() {
 }
 exports.getRootPath = getRootPath;
 exports.ConstanceHelper = {
-    DEFAULT_TEMPLATE_SRC: 'github:sy-l123/cli-minip-scaffold#main',
-    TEMP_DOWNLOAD_FLODER: 'minip-temp',
+    init: {
+        TEMP_DOWNLOAD_FLODER: 'minip-temp',
+        DEFAULT_TEMPLATE_SRC: 'github:sy-l123/cli-minip-scaffold#main',
+    },
+    create: {
+        TEMP_DOWNLOAD_FLODER: 'microp-temp',
+        DEFAULT_TEMPLATE_SRC: 'github:sy-l123/cli-microp-scaffold#main',
+    },
     OUTPUT_DIR: 'dist',
     SOURCE_DIR: 'src',
+    PUBLIC_DIR: 'public',
     NPM_DIR: 'npm',
 };
 function exchangeStyleExt(pathName, styleExt) {
