@@ -27,7 +27,7 @@ export default function fetchTemplate(templateRootPath: string, command: string)
             if (error) {
                 console.log(error)
                 spinner.color = 'red'
-                spinner.fail(helper.chalk.red('拉取远程模板仓库失败！'))
+                spinner.fail(helper.chalk.red('拉取远程模板仓库失败！请稍后重试'))
                 await fs.remove(tempPath)
                 return resolve()
             }

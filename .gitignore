@@ -3,3 +3,6 @@ node_modules/
 *.log
 minip
 minip-temp
+micro
+micro-temp
+dist

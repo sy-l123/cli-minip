@@ -22,7 +22,7 @@ function fetchTemplate(templateRootPath, command) {
             if (error) {
                 console.log(error);
                 spinner.color = 'red';
-                spinner.fail(helper_1.default.chalk.red('拉取远程模板仓库失败！'));
+                spinner.fail(helper_1.default.chalk.red('拉取远程模板仓库失败！请稍后重试'));
                 yield fs.remove(tempPath);
                 return resolve();
             }

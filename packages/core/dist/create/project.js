@@ -97,7 +97,7 @@ class Project extends creator_1.default {
         // }
     }
     init() {
-        console.log(helper_1.default.chalk.green('zncli 即将创建一个新小程序项目!'));
+        console.log(helper_1.default.chalk.green('zncli 即将创建一个新项目!'));
         // console.log(`Need help? Go and open issue: ${helper.chalk.blueBright('https://github.com/sy-l123/cli-minip-scaffold/issues')}`)
         console.log();
     }
