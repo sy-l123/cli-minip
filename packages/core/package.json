@@ -2,7 +2,7 @@
   "name": "@zn-cli/core",
   "version": "1.0.2",
   "description": "前端脚手架",
-  "author": "zn <lisiyuan>",
+  "author": "lsy",
   "homepage": "",
   "license": "MIT",
   "main": "index.js",
@@ -15,7 +15,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "http://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/"
   },
   "engines": {
     "node": ">=12"

@@ -1,3 +1,0 @@
-<view wx:if="{{webShow}}">
-  <web-view src="{{link}}" bindmessage="getmsg" bindload="webviewLoaded" binderror="webviewError"></web-view>
-</view>
