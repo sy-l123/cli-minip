@@ -15,7 +15,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "http://registry.npmjs.org/"
   },
   "engines": {
     "node": ">=12"
@@ -40,7 +40,7 @@
     "shelljs": "^0.8.5",
     "tapable": "^2.2.1"
   },
-  "gitHead": "",
+  "gitHead": "94b09af74da2068d90ca6bab60b7f55f23a41668",
   "devDependencies": {
     "typescript": "^4.7.4"
   }
