@@ -40,7 +40,7 @@
     "shelljs": "^0.8.5",
     "tapable": "^2.2.1"
   },
-  "gitHead": "0b56386f6df797010e12f3246715ccff683d5a6c",
+  "gitHead": "17c9970fb1b89c6885eaaa8a14e9645a6bfd02c5",
   "devDependencies": {
     "typescript": "^4.7.4"
   }
