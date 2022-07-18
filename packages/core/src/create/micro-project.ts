@@ -120,6 +120,8 @@ export default class MicroProject extends Creator {
     write() {
         this.conf.src = ConstanceHelper.SOURCE_DIR
         const templateCreate = require(path.join(process.cwd(), ConstanceHelper.create.TEMP_DOWNLOAD_FLODER, '/index.js'))
-        templateCreate(this, this.conf)
+        const shelljs = require('shelljs')
+        const ora = require('ora')
+        templateCreate(this, this.conf, helper.chalk, shelljs, ora)
     }
 }

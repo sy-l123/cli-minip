@@ -128,7 +128,9 @@ class Project extends creator_1.default {
     write() {
         this.conf.src = utils_1.ConstanceHelper.SOURCE_DIR;
         const templateCreate = require(path.join(process.cwd(), utils_1.ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'));
-        templateCreate(this, this.conf);
+        const shelljs = require('shelljs');
+        const ora = require('ora');
+        templateCreate(this, this.conf, helper_1.default.chalk, shelljs, ora);
     }
 }
 exports.default = Project;
