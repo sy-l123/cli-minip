@@ -100,7 +100,7 @@ class MicroProject extends creator_1.default {
     }
     write() {
         this.conf.src = utils_1.ConstanceHelper.SOURCE_DIR;
-        const templateCreate = require(path.join(this._rootPath, utils_1.ConstanceHelper.create.TEMP_DOWNLOAD_FLODER, '/index.js'));
+        const templateCreate = require(path.join(process.cwd(), utils_1.ConstanceHelper.create.TEMP_DOWNLOAD_FLODER, '/index.js'));
         templateCreate(this, this.conf);
     }
 }
