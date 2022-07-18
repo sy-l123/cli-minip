@@ -148,8 +148,7 @@ export default class Project extends Creator {
 
     write() {
         this.conf.src = ConstanceHelper.SOURCE_DIR
-        // console.log('------->templateCreate ', path.join(this._rootPath, ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'))
-        const templateCreate = require(path.join(this._rootPath, ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'))
+        const templateCreate = require(path.join(process.cwd(), ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'))
         templateCreate(this, this.conf)
     }
 }
