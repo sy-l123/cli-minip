@@ -42,7 +42,7 @@ export default class Creator {
     template(filePath, dest, data, options) {
         try {
             this.fs.copyTpl(
-                path.join(this._rootPath, filePath),
+                filePath,
                 dest,
                 Object.assign({}, this, data),
                 options
@@ -54,7 +54,7 @@ export default class Creator {
 
     copy(filePath, dest) {
         this.fs.copy(
-            path.join(this._rootPath, filePath),
+            filePath,
             dest,
         )
     }

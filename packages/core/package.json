@@ -1,6 +1,6 @@
 {
   "name": "@zn-cli/core",
-  "version": "2.0.1",
+  "version": "1.0.2",
   "description": "前端脚手架",
   "author": "lsy",
   "homepage": "",
@@ -40,7 +40,7 @@
     "shelljs": "^0.8.5",
     "tapable": "^2.2.1"
   },
-  "gitHead": "d410bcbae3da94b3327d445d986430123ad2680c",
+  "gitHead": "",
   "devDependencies": {
     "typescript": "^4.7.4"
   }

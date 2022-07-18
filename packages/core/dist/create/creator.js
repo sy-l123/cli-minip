@@ -25,14 +25,14 @@ class Creator {
     }
     template(filePath, dest, data, options) {
         try {
-            this.fs.copyTpl(path.join(this._rootPath, filePath), dest, Object.assign({}, this, data), options);
+            this.fs.copyTpl(filePath, dest, Object.assign({}, this, data), options);
         }
         catch (error) {
             console.log(helper_1.default.chalk.green(`${filePath}模板创建失败:${error}`));
         }
     }
     copy(filePath, dest) {
-        this.fs.copy(path.join(this._rootPath, filePath), dest);
+        this.fs.copy(filePath, dest);
     }
     exchangeStyleExtFn(pathName, style) {
         (0, utils_1.exchangeStyleExt)(pathName, style);
