@@ -1,9 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Project = void 0;
-const project_1 = require("./create/project");
-exports.Project = project_1.default;
+exports.MicroProject = exports.MinipProject = void 0;
+const minip_project_1 = require("./create/minip-project");
+exports.MinipProject = minip_project_1.default;
+const micro_project_1 = require("./create/micro-project");
+exports.MicroProject = micro_project_1.default;
 exports.default = {
-    Project: project_1.default
+    MinipProject: minip_project_1.default,
+    MicroProject: micro_project_1.default
 };
 //# sourceMappingURL=index.js.map

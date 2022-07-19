@@ -3,7 +3,7 @@ import * as path from 'path'
 import * as fs from 'fs-extra'
 const ora = require('ora')
 import * as download from 'download-git-repo'
-import helper from '../helper'
+import * as chalk from 'chalk'
 
 export interface ITemplates {
     name: string,
@@ -11,9 +11,9 @@ export interface ITemplates {
 }
 
 
-export default function fetchTemplate(templateRootPath: string, command: string): Promise<void> {
+export default function fetchTemplate(command: string): Promise<void> {
     const templateSource: string = ConstanceHelper[command].DEFAULT_TEMPLATE_SRC
-    const tempPath = path.join(templateRootPath, ConstanceHelper[command].TEMP_DOWNLOAD_FLODER)
+    const tempPath = path.join(process.cwd(), ConstanceHelper[command].TEMP_DOWNLOAD_FLODER)
     return new Promise(async (resolve) => {
         // 下载文件的缓存目录
         if (fs.existsSync(tempPath)) {
@@ -27,12 +27,12 @@ export default function fetchTemplate(templateRootPath: string, command: string)
             if (error) {
                 console.log(error)
                 spinner.color = 'red'
-                spinner.fail(helper.chalk.red('拉取远程模板仓库失败！请稍后重试'))
+                spinner.fail(chalk.red('拉取远程模板仓库失败！请稍后重试'))
                 await fs.remove(tempPath)
                 return resolve()
             }
             spinner.color = 'green'
-            spinner.succeed(`${helper.chalk.grey('拉取远程模板仓库成功！')}`)
+            spinner.succeed(`${chalk.grey('拉取远程模板仓库成功！')}`)
             resolve()
         })
     })

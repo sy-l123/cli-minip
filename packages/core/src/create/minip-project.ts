@@ -1,11 +1,12 @@
 import Creator from './creator'
-import helper from '../helper'
+import * as chalk from 'chalk'
 import * as semver from 'semver'
 import * as path from 'path'
 import * as fs from 'fs-extra'
 import * as inquirer from 'inquirer'
 import fetchTemplate from './fetchTemplates'
 import { ConstanceHelper } from '../utils'
+
 interface IProjectConf {
     projectName: string
     projectDir: string
@@ -20,7 +21,7 @@ interface AskMethods {
     (conf: IProjectConf, prompts: Record<string, unknown>[]): void
 }
 
-export default class Project extends Creator {
+export default class MinipProject extends Creator {
     public rootPath: string
     public conf: IProjectConf
 
@@ -49,7 +50,7 @@ export default class Project extends Creator {
     }
 
     init() {
-        console.log(helper.chalk.green('zncli 即将创建一个新项目!'))
+        console.log(chalk.green('zncli 即将创建一个新项目!'))
         console.log()
     }
 
@@ -57,11 +58,11 @@ export default class Project extends Creator {
         try {
             const answers = await this.ask()
             this.conf = Object.assign(this.conf, answers)
-            fetchTemplate(this.conf.projectDir, 'init').then(() => {
+            fetchTemplate('init').then(() => {
                 this.write()
             })
         } catch (error) {
-            console.log(helper.chalk.red('创建项目失败: ', error))
+            console.log(chalk.red('创建项目失败: ', error))
         }
     }
 
@@ -72,6 +73,7 @@ export default class Project extends Creator {
         this.askProjectName(conf, prompts)
         this.askDescription(conf, prompts)
         this.askCSS(conf, prompts)
+        console.log('prompts', prompts)
         const answers = await inquirer.prompt(prompts)
 
         return {
@@ -151,6 +153,6 @@ export default class Project extends Creator {
         const templateCreate = require(path.join(process.cwd(), ConstanceHelper.init.TEMP_DOWNLOAD_FLODER, '/index.js'))
         const shelljs = require('shelljs')
         const ora = require('ora')
-        templateCreate(this, this.conf, helper.chalk, shelljs, ora)
+        templateCreate(this, this.conf, chalk, shelljs, ora)
     }
 }

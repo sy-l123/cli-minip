@@ -45,6 +45,7 @@ class CLI {
                         css: args.css,
                         h: args.h
                     });
+                    break;
                 }
                 case 'create': {
                     (0, customCommand_1.default)(command, kernel, {
@@ -54,6 +55,7 @@ class CLI {
                         description: args.description,
                         h: args.h
                     });
+                    break;
                 }
             }
         }

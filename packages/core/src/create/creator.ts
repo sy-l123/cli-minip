@@ -3,7 +3,7 @@ import * as fs from 'fs-extra'
 import * as memFs from 'mem-fs'
 import * as editor from 'mem-fs-editor'
 import { getRootPath, exchangeStyleExt } from '../utils'
-import helper from '../helper'
+import * as chalk from 'chalk'
 
 interface IFile {}
 
@@ -18,7 +18,6 @@ interface IMemFsEditor {
 export default class Creator {
     fs: IMemFsEditor
     protected _rootPath: string
-    private _destinationRoot: string
 
     constructor(sourceRoot?: string) {
         const store = memFs.create()
@@ -48,7 +47,7 @@ export default class Creator {
                 options
             )
         } catch (error) {
-            console.log(helper.chalk.green(`${filePath}模板创建失败:${error}`, ))
+            console.log(chalk.green(`${filePath}模板创建失败:${error}`, ))
         }
     }
 

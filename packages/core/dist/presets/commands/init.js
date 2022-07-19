@@ -24,15 +24,15 @@ exports.default = (ctx) => {
                   isHelp: undefined*/
                 const { options } = opts;
                 const { projectName, description, typescript, css, appPath } = options;
-                const Project = require('../../create/project').default;
-                const project = new Project({
+                const MinipProject = require('../../create/minip-project').default;
+                const minipProject = new MinipProject({
                     projectName,
                     projectDir: appPath,
                     description,
                     typescript,
                     css
                 });
-                project.create();
+                minipProject.create();
             });
         }
     });

@@ -22,8 +22,8 @@ export default (ctx: IPluginContext) => {
         isHelp: undefined*/
       const { options } = opts
       const { projectName, description, typescript, css, appPath } = options
-      const Project = require('../../create/project').default
-      const project = new Project({
+      const MinipProject = require('../../create/minip-project').default
+      const minipProject = new MinipProject({
         projectName,
         projectDir: appPath,
         description,
@@ -31,7 +31,7 @@ export default (ctx: IPluginContext) => {
         css
       })
 
-      project.create()
+      minipProject.create()
     }
   })
 }

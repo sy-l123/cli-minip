@@ -1,9 +1,12 @@
-import Project from './create/project'
+import MinipProject from './create/minip-project'
+import MicroProject from './create/micro-project'
 
 export default {
-    Project
+    MinipProject,
+    MicroProject
 }
 
 export {
-    Project
+    MinipProject,
+    MicroProject
 }

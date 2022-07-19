@@ -1,6 +1,5 @@
 import { EventEmitter } from 'events'
 import { IPaths, PluginItem, IPlugin, IHook } from './utils/types'
-import * as helper from './helper'
 import { getModuleDefaultExport } from './utils'
 import Plugin from './presets/Plugin'
 import { AsyncSeriesWaterfallHook } from 'tapable'

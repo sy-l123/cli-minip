@@ -51,6 +51,7 @@ export default class CLI {
                         css: args.css,
                         h: args.h
                     })
+                    break
                 }
                 case 'create': {
                     customCommand(command, kernel, {
@@ -60,6 +61,7 @@ export default class CLI {
                         description: args.description,
                         h: args.h
                     })
+                    break
                 }
             }
         }

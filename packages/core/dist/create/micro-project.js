@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const creator_1 = require("./creator");
-const helper_1 = require("../helper");
+const chalk = require("chalk");
 const semver = require("semver");
 const path = require("path");
 const fs = require("fs-extra");
@@ -67,7 +67,7 @@ class MicroProject extends creator_1.default {
         }, options);
     }
     init() {
-        console.log(helper_1.default.chalk.green('zncli 即将创建一个新项目!'));
+        console.log(chalk.green('zncli 即将创建一个新项目!'));
         console.log();
     }
     create() {
@@ -79,12 +79,12 @@ class MicroProject extends creator_1.default {
                     this.conf.projectName.replace('bu_pc_', '');
                     this.conf.projectName.replace('micro-app-', '');
                 }
-                (0, fetchTemplates_1.default)(this.conf.projectDir, 'create').then(() => {
+                (0, fetchTemplates_1.default)('create').then(() => {
                     this.write();
                 });
             }
             catch (error) {
-                console.log(helper_1.default.chalk.red('创建项目失败: ', error));
+                console.log(chalk.red('创建项目失败: ', error));
             }
         });
     }
@@ -103,7 +103,7 @@ class MicroProject extends creator_1.default {
         const templateCreate = require(path.join(process.cwd(), utils_1.ConstanceHelper.create.TEMP_DOWNLOAD_FLODER, '/index.js'));
         const shelljs = require('shelljs');
         const ora = require('ora');
-        templateCreate(this, this.conf, helper_1.default.chalk, shelljs, ora);
+        templateCreate(this, this.conf, chalk, shelljs, ora);
     }
 }
 exports.default = MicroProject;

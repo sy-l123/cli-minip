@@ -1,5 +1,5 @@
 import Creator from './creator'
-import helper from '../helper'
+import * as chalk from 'chalk'
 import * as semver from 'semver'
 import * as path from 'path'
 import * as fs from 'fs-extra'
@@ -11,8 +11,6 @@ interface IProjectConf {
     projectName: string
     projectDir: string
     description?: string
-    typescript?: boolean
-    css: 'none' | 'sass' | 'less'
     sourceRoot?: string
     src?: string
 }
@@ -40,7 +38,7 @@ export default class MicroProject extends Creator {
     }
 
     init() {
-        console.log(helper.chalk.green('zncli 即将创建一个新项目!'))
+        console.log(chalk.green('zncli 即将创建一个新项目!'))
         console.log()
     }
 
@@ -52,11 +50,11 @@ export default class MicroProject extends Creator {
                 this.conf.projectName.replace('bu_pc_', '')
                 this.conf.projectName.replace('micro-app-', '')
             }
-            fetchTemplate(this.conf.projectDir, 'create').then(() => {
+            fetchTemplate('create').then(() => {
                 this.write()
             })
         } catch (error) {
-            console.log(helper.chalk.red('创建项目失败: ', error))
+            console.log(chalk.red('创建项目失败: ', error))
         }
     }
 
@@ -122,6 +120,6 @@ export default class MicroProject extends Creator {
         const templateCreate = require(path.join(process.cwd(), ConstanceHelper.create.TEMP_DOWNLOAD_FLODER, '/index.js'))
         const shelljs = require('shelljs')
         const ora = require('ora')
-        templateCreate(this, this.conf, helper.chalk, shelljs, ora)
+        templateCreate(this, this.conf, chalk, shelljs, ora)
     }
 }

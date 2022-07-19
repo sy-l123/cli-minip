@@ -5,7 +5,7 @@ const fs = require("fs-extra");
 const memFs = require("mem-fs");
 const editor = require("mem-fs-editor");
 const utils_1 = require("../utils");
-const helper_1 = require("../helper");
+const chalk = require("chalk");
 class Creator {
     constructor(sourceRoot) {
         const store = memFs.create();
@@ -28,7 +28,7 @@ class Creator {
             this.fs.copyTpl(filePath, dest, Object.assign({}, this, data), options);
         }
         catch (error) {
-            console.log(helper_1.default.chalk.green(`${filePath}模板创建失败:${error}`));
+            console.log(chalk.green(`${filePath}模板创建失败:${error}`));
         }
     }
     copy(filePath, dest) {
